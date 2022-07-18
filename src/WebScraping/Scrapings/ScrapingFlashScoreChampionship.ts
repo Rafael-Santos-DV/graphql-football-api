@@ -2,7 +2,7 @@ import { load } from 'cheerio';
 import ContractChampionship from '../../Contracts/ContractChampionship';
 import { ChampionshipType } from '../../Types/TypeChampionship';
 
-class ScrapingChampionship implements ContractChampionship {
+class ScrapingFlashChampionship implements ContractChampionship {
   constructor(readonly documentHTML: string) {}
 
   showChampionshipTable(): ChampionshipType[] {
@@ -14,7 +14,7 @@ class ScrapingChampionship implements ContractChampionship {
 
       const golsScoredAndTaken = query.find('.table__cell--value').eq(4).text().split(':');
 
-      let prevData = {
+      const team = {
         name: query.find('.tableCellParticipant__name').text(),
         position: query.find('.tableCellRank').text(),
         points: query.find('.table__cell--points').text(),
@@ -28,11 +28,11 @@ class ScrapingChampionship implements ContractChampionship {
         goalsDifference: Number(golsScoredAndTaken[0]) - Number(golsScoredAndTaken[1]),
       };
 
-      data.push(prevData);
+      data.push(team);
     });
 
     return data;
   }
 }
 
-export default ScrapingChampionship;
+export default ScrapingFlashChampionship;

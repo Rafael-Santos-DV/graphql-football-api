@@ -23,3 +23,5 @@ export type ChampionshipType = {
 
   goalsDifference: PropertyField;
 };
+
+export type ChampionshipBrazil = 'brasileirao-a' | 'brasileirao-b' | 'brasileirao-c';

@@ -1,21 +1,20 @@
 import { Arg, Query, Resolver } from 'type-graphql';
 import TypeChampionship from '../ObjectTypes/TypeChampionship';
 import Providers from '../Providers/Providers';
-import { ChampionshipType } from '../Types/TypeChampionship';
+import { ChampionshipBrazil, ChampionshipType } from '../Types/TypeChampionship';
 import Browser from '../WebScraping/Browser';
-import ScrapingChampionship from '../WebScraping/Scrapings/ScrapingChampionship';
+import ScrapingFlashChampionship from '../WebScraping/Scrapings/ScrapingFlashScoreChampionship';
+import nodeCache from 'node-cache';
 
 @Resolver()
 class ResolverChampionship {
   @Query(() => [TypeChampionship])
-  async championshipTable(@Arg('championship') championship: string): Promise<ChampionshipType[]> {
-    const browser = await new Browser({
-      name: Providers.fleshScore.name,
-      provider: Providers.fleshScore.Provider,
-    }).startBrowser();
+  async championshipTable(@Arg('championship', (type) => String) championship: ChampionshipBrazil): Promise<ChampionshipType[]> {
+    const browser = new Browser(Providers.fleshScoreChampionship(championship));
 
-    const data = new ScrapingChampionship(browser.HTML).showChampionshipTable();
+    const WINDOW_DOCUMENT = await browser.startBrowser();
 
+    const data = new ScrapingFlashChampionship(WINDOW_DOCUMENT.HTML).showChampionshipTable();
     return data;
   }
 }
