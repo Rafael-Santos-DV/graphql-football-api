@@ -1,15 +1,20 @@
 import pupperter from 'puppeteer';
 
-class Browser {
-  constructor(private providerOfData: string) {}
+type ProviderType = {
+  name: string;
+  provider: string;
+};
 
-  protected async startBrowser() {
+class Browser {
+  constructor(private providerOfData: ProviderType) {}
+
+  public async startBrowser() {
     try {
       const browser = await pupperter.launch();
 
       const page = await browser.newPage();
 
-      await page.goto(this.providerOfData);
+      await page.goto(this.providerOfData.provider);
 
       const documentHTML = await page.evaluate(() => {
         return {

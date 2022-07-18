@@ -35,7 +35,7 @@ class TypeChampionship {
   goalsTaken: PropertyField;
 
   @Field(() => Number)
-  goalsDiference: PropertyField;
+  goalsDifference: PropertyField;
 }
 
 export default TypeChampionship;

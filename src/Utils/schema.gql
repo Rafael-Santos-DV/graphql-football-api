@@ -9,7 +9,7 @@ type Query {
 
 type TypeChampionship {
   draws: Float!
-  goalsDiference: Float!
+  goalsDifference: Float!
   goalsScored: Float!
   goalsTaken: Float!
   imageUrl: String!
