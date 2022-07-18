@@ -1,15 +1,22 @@
 import pupperter from 'puppeteer';
+import NodeCache from 'node-cache';
 
 type ProviderType = {
   name: string;
   provider: string;
 };
 
+const cacheBrowser = new NodeCache({ stdTTL: 20 });
+
 class Browser {
   constructor(private providerOfData: ProviderType) {}
 
   public async startBrowser() {
     try {
+      if (cacheBrowser.has(this.providerOfData.name)) {
+        return cacheBrowser.get(this.providerOfData.name) as { title: string; HTML: string };
+      }
+
       const browser = await pupperter.launch();
 
       const page = await browser.newPage();
@@ -24,7 +31,8 @@ class Browser {
       });
 
       await browser.close();
-      console.log('browser is close');
+
+      cacheBrowser.set(this.providerOfData.name, documentHTML);
 
       return documentHTML;
     } catch (err) {

@@ -2,9 +2,8 @@ import { Arg, Query, Resolver } from 'type-graphql';
 import TypeChampionship from '../ObjectTypes/TypeChampionship';
 import Providers from '../Providers/Providers';
 import { ChampionshipBrazil, ChampionshipType } from '../Types/TypeChampionship';
-import Browser from '../WebScraping/Browser';
 import ScrapingFlashChampionship from '../WebScraping/Scrapings/ScrapingFlashScoreChampionship';
-import nodeCache from 'node-cache';
+import Browser from '../WebScraping/Browser';
 
 @Resolver()
 class ResolverChampionship {
