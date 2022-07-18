@@ -5,7 +5,7 @@ import { ChampionshipType } from '../../Types/TypeChampionship';
 class ScrapingFlashChampionship implements ContractChampionship {
   constructor(readonly documentHTML: string) {}
 
-  showChampionshipTable(): ChampionshipType[] {
+  scrapingChampionshipTable(): ChampionshipType[] {
     const data = [] as ChampionshipType[];
     const $ = load(this.documentHTML);
 

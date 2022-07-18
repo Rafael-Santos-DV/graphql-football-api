@@ -3,9 +3,9 @@ import type { PropertyFieldTeam } from './TypesGlobal';
 export type TypeTodayGame = {
   championship: string;
 
-  status: number | 'não iniciado' | 'encerrado';
+  status: string;
 
-  eventTime: number | 'iniciado';
+  eventTime: string;
 
   homeTeam: PropertyFieldTeam;
 

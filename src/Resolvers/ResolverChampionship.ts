@@ -9,11 +9,11 @@ import Browser from '../WebScraping/Browser';
 class ResolverChampionship {
   @Query(() => [ObjectTypeChampionship])
   async championshipTable(@Arg('championship', (type) => String) championship: ChampionshipBrazil): Promise<ChampionshipType[]> {
-    const browser = new Browser(Providers.fleshScoreChampionship(championship));
+    const browser = new Browser(Providers.flashScoreChampionship(championship));
 
     const WINDOW_DOCUMENT = await browser.startBrowser();
 
-    const data = new ScrapingFlashChampionship(WINDOW_DOCUMENT.HTML).showChampionshipTable();
+    const data = new ScrapingFlashChampionship(WINDOW_DOCUMENT.HTML).scrapingChampionshipTable();
     return data;
   }
 }
