@@ -10,7 +10,7 @@ class Team {
   @Field(() => String)
   imageUrl: string;
 
-  @Field(() => Number)
+  @Field(() => String)
   goals: number | string;
 }
 
