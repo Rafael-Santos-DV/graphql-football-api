@@ -1,4 +1,4 @@
-type PropertyField = number | string;
+import { PropertyField } from './TypesGlobal';
 
 export type ChampionshipType = {
   name: string;

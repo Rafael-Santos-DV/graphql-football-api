@@ -1,13 +1,8 @@
 import { Field, ObjectType } from 'type-graphql';
-
-type PropertyFieldTeam = {
-  name: string;
-  imageUrl: string;
-  goals: number | string;
-};
+import type { PropertyFieldTeam } from '../Types/TypesGlobal';
 
 @ObjectType()
-class TypeTodayMatches {
+class ObjectTypeTodayGames {
   @Field()
   championship: string;
 
@@ -24,4 +19,4 @@ class TypeTodayMatches {
   visitantTeam: PropertyFieldTeam;
 }
 
-export default TypeTodayMatches;
+export default ObjectTypeTodayGames;

@@ -3,7 +3,7 @@ import { Field, ID, ObjectType } from 'type-graphql';
 type PropertyField = number | string;
 
 @ObjectType()
-class TypeChampionship {
+class ObjectTypeChampionship {
   @Field(() => ID)
   name: string;
 
@@ -38,4 +38,4 @@ class TypeChampionship {
   goalsDifference: PropertyField;
 }
 
-export default TypeChampionship;
+export default ObjectTypeChampionship;

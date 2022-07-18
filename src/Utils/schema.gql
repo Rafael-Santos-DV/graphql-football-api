@@ -3,11 +3,7 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-type Query {
-  championshipTable(championship: String!): [TypeChampionship!]!
-}
-
-type TypeChampionship {
+type ObjectTypeChampionship {
   draws: Float!
   goalsDifference: Float!
   goalsScored: Float!
@@ -19,4 +15,8 @@ type TypeChampionship {
   points: Float!
   position: Float!
   winners: Float!
+}
+
+type Query {
+  championshipTable(championship: String!): [ObjectTypeChampionship!]!
 }
