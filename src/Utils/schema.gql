@@ -31,7 +31,7 @@ type Query {
 }
 
 type Team {
-  goals: Float!
+  goals: String!
   imageUrl: String!
   name: String!
 }
