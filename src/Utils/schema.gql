@@ -26,8 +26,8 @@ type ObjectTypeTodayGames {
 }
 
 type Query {
-  championshipTable(championship: String!): [ObjectTypeChampionship!]!
-  todayMatches(championship: String!): [ObjectTypeTodayGames!]!
+  championshipTable(championship: String!, country: String!): [ObjectTypeChampionship!]!
+  todayMatches(championship: String!, country: String!): [ObjectTypeTodayGames!]!
 }
 
 type Team {

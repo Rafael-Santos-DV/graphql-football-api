@@ -24,4 +24,8 @@ export type ChampionshipType = {
   goalsDifference: PropertyField;
 };
 
-export type ChampionshipBrazil = 'brasileirao-a' | 'brasileirao-b' | 'brasileirao-c';
+// export type Countries = 'brasi' | 'alemanha' | 'espanha';
+
+// export type Championship = 'serie-a' | 'serie-b' | 'serie-c' | 'bundesliga' | 'bundeslinga-2';
+
+// export type AllChampionship = ChampionshipBrazil | ChampionshipAlemanha;
