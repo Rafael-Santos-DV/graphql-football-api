@@ -1,21 +1,34 @@
-import { Field, ObjectType } from 'type-graphql';
+import { Field, ObjectType, InputType } from 'type-graphql';
 import type { PropertyFieldTeam } from '../Types/TypesGlobal';
+
+@ObjectType()
+@InputType('InfoTeam')
+class Team {
+  @Field(() => String)
+  name: string;
+
+  @Field(() => String)
+  imageUrl: string;
+
+  @Field(() => Number)
+  goals: number | string;
+}
 
 @ObjectType()
 class ObjectTypeTodayGames {
   @Field()
   championship: string;
 
-  @Field()
+  @Field(() => String)
   status: number | 'não iniciado' | 'encerrado';
 
-  @Field()
+  @Field(() => String)
   eventTime: number | 'iniciado';
 
-  @Field()
+  @Field(() => Team)
   homeTeam: PropertyFieldTeam;
 
-  @Field()
+  @Field(() => Team)
   visitantTeam: PropertyFieldTeam;
 }
 

@@ -17,6 +17,21 @@ type ObjectTypeChampionship {
   winners: Float!
 }
 
+type ObjectTypeTodayGames {
+  championship: String!
+  eventTime: String!
+  homeTeam: Team!
+  status: String!
+  visitantTeam: Team!
+}
+
 type Query {
   championshipTable(championship: String!): [ObjectTypeChampionship!]!
+  todayMatches(championship: String!): [ObjectTypeTodayGames!]!
+}
+
+type Team {
+  goals: Float!
+  imageUrl: String!
+  name: String!
 }
