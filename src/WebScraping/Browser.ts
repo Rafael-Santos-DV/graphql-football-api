@@ -18,12 +18,12 @@ class Browser {
       }
 
       const browser = await pupperter.launch({
-        args: ['--proxy-server=https://api-graphql.onrender.com:10000'],
+        // args: ['--proxy-server=https://api-graphql.onrender.com:10000'],
       });
 
       const page = await browser.newPage();
 
-      await page.goto(this.providerOfData.provider);
+      await page.goto(this.providerOfData.provider, { timeout: 3 * 300 * 300 });
 
       const documentHTML = await page.evaluate(() => {
         return {
