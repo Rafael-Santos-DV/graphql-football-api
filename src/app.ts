@@ -15,7 +15,7 @@ async function main() {
     schema,
   });
 
-  const { url } = await server.listen();
+  const { url } = await server.listen({ port: process.env.PORT || 4000 });
 
   console.log(`running in port ${url}`);
 }
