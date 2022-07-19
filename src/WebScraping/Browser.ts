@@ -18,7 +18,8 @@ class Browser {
       }
 
       const browser = await pupperter.launch({
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        headless: true,
+        args: ['--use-gl=egl'],
       });
 
       const page = await browser.newPage();
