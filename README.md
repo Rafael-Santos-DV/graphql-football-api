@@ -100,6 +100,43 @@ query {
 
 ### Você pode fazer muitas coisas
 
+## Querys
+
+- **todayMatches**
+  Essa consulta procura os jogos de hoje de determinado campeonato
+
+  Possível retorno:
+
+  ```json
+
+  "data": {
+    "todayMatches": [
+      {
+        "championship": "<nome do campeonato>",
+        "eventTime": "<horário>",
+        "status": "<não iniciado | number | encerrado | adiado>",
+        "visitantTeam": {
+          "goals": "<number | ''>",
+          "name": "<nome equipe visitante>",
+          "imageUrl": "<logo da equipe visitante>"
+        },
+        "homeTeam": {
+          "goals": "<number | ''>",
+          "imageUrl": "<logo equipe da casa>",
+          "name": "<nome da equipe da casa>"
+        }
+      }
+    ]
+  }
+
+  ```
+
+- **championshipTable**
+  Essa consulta procura pela tabela de um determinado campeonato
+
+- **lastMatches**
+  Essa consulta procura pelos últimos jogos de determinado time
+
 ## Exemplo com React
 
 //
