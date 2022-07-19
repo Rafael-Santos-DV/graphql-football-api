@@ -17,9 +17,7 @@ class Browser {
         return cacheBrowser.get(this.providerOfData.name) as { title: string; HTML: string };
       }
 
-      const browser = await pupperter.launch({
-        ignoreDefaultArgs: ['--disable-extensions'],
-      });
+      const browser = await pupperter.launch();
 
       const page = await browser.newPage();
 
