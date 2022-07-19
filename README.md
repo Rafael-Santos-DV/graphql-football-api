@@ -100,36 +100,52 @@ query {
 
 ### Você pode fazer muitas coisas
 
-## Querys
+## Queries
 
 - **todayMatches**
   Essa consulta procura os jogos de hoje de determinado campeonato
 
-  Possível retorno:
+  Parâmetros aceitos:
 
-  ```json
+  **championship: String**; -> required
+  **country: String**; -> required
+  **limit: Number**; -> optional
 
-  "data": {
-    "todayMatches": [
-      {
-        "championship": "<nome do campeonato>",
-        "eventTime": "<horário>",
-        "status": "<não iniciado | number | encerrado | adiado>",
-        "visitantTeam": {
-          "goals": "<number | ''>",
-          "name": "<nome equipe visitante>",
-          "imageUrl": "<logo da equipe visitante>"
-        },
-        "homeTeam": {
-          "goals": "<number | ''>",
-          "imageUrl": "<logo equipe da casa>",
-          "name": "<nome da equipe da casa>"
-        }
-      }
-    ]
+Exemplo:
+
+```gql
+query {
+  todayMatches(championship: "serie-a", country: "brasil", limit: 1) {
+    ...
   }
+}
+```
 
-  ```
+Possível retorno:
+
+```json
+
+"data": {
+  "todayMatches": [
+    {
+      "championship": "<nome do campeonato>",
+      "eventTime": "<horário>",
+      "status": "<não iniciado | number | encerrado | adiado>",
+      "visitantTeam": {
+        "goals": "<number | ''>",
+        "name": "<nome equipe visitante>",
+        "imageUrl": "<logo da equipe visitante>"
+      },
+      "homeTeam": {
+        "goals": "<number | ''>",
+        "imageUrl": "<logo equipe da casa>",
+        "name": "<nome da equipe da casa>"
+      }
+    }
+  ]
+}
+
+```
 
 - **championshipTable**
   Essa consulta procura pela tabela de um determinado campeonato
