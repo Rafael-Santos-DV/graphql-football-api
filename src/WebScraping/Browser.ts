@@ -18,8 +18,7 @@ class Browser {
       }
 
       const browser = await pupperter.launch({
-        headless: true,
-        args: ['--use-gl=egl'],
+        ignoreDefaultArgs: ['--disable-extensions'],
       });
 
       const page = await browser.newPage();
