@@ -22,6 +22,8 @@
 
 - <img width="20px" src="/.github/assets/apollo-server.png" alt="Apollo Server" />
 
+- <img width="20px" src="https://user-images.githubusercontent.com/10379601/29446482-04f7036a-841f-11e7-9872-91d1fc2ea683.png" />
+
 # Iniciar
 
 Clonar Projeto
@@ -58,7 +60,7 @@ Acessar: [localhost:4000](http://locahost:4000)
 
 ```gql
 query {
-  todayMatches(championship: "serie-a", county: "brasil") {
+  todayMatches(championship: "serie-a", country: "brasil") {
     championship
     eventTime
     status
@@ -95,6 +97,8 @@ query {
   }
 }
 ```
+
+### Você pode fazer muitas coisas
 
 ## Exemplo com React
 

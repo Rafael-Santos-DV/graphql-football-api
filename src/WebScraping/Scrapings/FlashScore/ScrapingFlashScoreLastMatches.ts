@@ -1,6 +1,6 @@
 import { Cheerio, Element, load } from 'cheerio';
-import ContractLastMatches from '../../Contracts/ContractLastMatches';
-import { LastMatchesType } from '../../Types/TypeLastMatches';
+import ContractLastMatches from '../../../Contracts/ContractLastMatches';
+import { LastMatchesType } from '../../../Types/TypeLastMatches';
 
 class ScrapingFlashScoreMatches implements ContractLastMatches {
   constructor(readonly documentHTML: string) {}

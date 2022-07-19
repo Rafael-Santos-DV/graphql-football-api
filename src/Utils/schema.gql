@@ -40,9 +40,9 @@ type ObjectTypeTodayGames {
 }
 
 type Query {
-  championshipTable(championship: String!, country: String!): [ObjectTypeChampionship!]!
-  lastMatches(id: String!): [ObjectTypeLastMatches!]!
-  todayMatches(championship: String!, country: String!): [ObjectTypeTodayGames!]!
+  championshipTable(championship: String!, country: String!, limit: Float): [ObjectTypeChampionship!]!
+  lastMatches(id: String!, limit: Float): [ObjectTypeLastMatches!]!
+  todayMatches(championship: String!, country: String!, limit: Float): [ObjectTypeTodayGames!]!
 }
 
 type Team {

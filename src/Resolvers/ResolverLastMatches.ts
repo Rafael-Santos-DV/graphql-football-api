@@ -3,19 +3,19 @@ import ObjectTypeLastMatches from '../ObjectTypes/ObjectTypeLastMatches';
 import Providers from '../Providers/Providers';
 import { LastMatchesType } from '../Types/TypeLastMatches';
 import Browser from '../WebScraping/Browser';
-import ScrapingFlashScoreMatches from '../WebScraping/Scrapings/ScrapingFlashScoreLastMatches';
+import ScrapingFlashScoreMatches from '../WebScraping/Scrapings/FlashScore/ScrapingFlashScoreLastMatches';
 
 @Resolver()
 class ResolverLastMatches {
   @Query(() => [ObjectTypeLastMatches])
-  async lastMatches(@Arg('id') id: string): Promise<LastMatchesType[]> {
+  async lastMatches(@Arg('id') id: string, @Arg('limit', { nullable: true }) limit?: number): Promise<LastMatchesType[]> {
     const browser = new Browser(Providers.flashScoreLastMatches(id));
 
     const WINDOW_DOCUMENT = await browser.startBrowser();
 
     const data = new ScrapingFlashScoreMatches(WINDOW_DOCUMENT.HTML).scrapingLastMatches();
 
-    return data;
+    return data.slice(0, limit);
   }
 }
 

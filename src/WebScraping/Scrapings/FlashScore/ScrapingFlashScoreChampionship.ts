@@ -1,6 +1,6 @@
 import { load } from 'cheerio';
-import ContractChampionship from '../../Contracts/ContractChampionship';
-import { ChampionshipType } from '../../Types/TypeChampionship';
+import ContractChampionship from '../../../Contracts/ContractChampionship';
+import { ChampionshipType } from '../../../Types/TypeChampionship';
 
 class ScrapingFlashChampionship implements ContractChampionship {
   constructor(readonly documentHTML: string) {}
