@@ -56,7 +56,7 @@ npm run dev
 
 Acessar: [localhost:4000](http://locahost:4000)
 
-## Listar os jogos de hoje do campeonato Brasileiro Série A
+## Listar os jogos de hoje do campeonato **Brasileiro Série A**
 
 ```gql
 query {
@@ -78,7 +78,7 @@ query {
 }
 ```
 
-## Listar tabela do campeonato Brasileiro Série A
+## Listar tabela do campeonato **Brasileiro Série A**
 
 ```gql
 query {
@@ -98,18 +98,18 @@ query {
 }
 ```
 
-### Você pode fazer muitas coisas
+### :star: Você pode fazer muitas coisas :star:
 
-## Queries
+## **Queries** :ballot_box_with_check:
 
 - **todayMatches** \
-  Essa consulta procura os jogos de hoje de determinado campeonato
+   Essa consulta procura os jogos de hoje de determinado campeonato
 
   Parâmetros aceitos:
 
-  **championship: String**; -> required \
-  **country: String**; -> required \
-  **limit: Number**; -> optional
+  **championship: String**; -> required :exclamation: \
+  **country: String**; -> required :exclamation: \
+  **limit: Number**; -> optional :question:
 
 Exemplo:
 
@@ -150,10 +150,10 @@ Possível retorno:
 - **lastMatches** \
    Essa consulta procura pelos últimos jogos de determinado time
 
-  Parâmetros aceitos: \
+  Parâmetros aceitos:
 
-  **id: String**; -> required \
-   **limit: Number**; -> optional
+  **id: String**; -> required :exclamation: \
+   **limit: Number**; -> optional :question:
 
   Exemplo:
 
