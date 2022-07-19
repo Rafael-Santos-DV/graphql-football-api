@@ -5,6 +5,9 @@ type PropertyField = number | string;
 @ObjectType()
 class ObjectTypeChampionship {
   @Field(() => ID)
+  id: string;
+
+  @Field()
   name: string;
 
   @Field(() => Number)

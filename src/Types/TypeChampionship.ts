@@ -3,6 +3,8 @@ import { PropertyField } from './TypesGlobal';
 export type ChampionshipType = {
   name: string;
 
+  id: string;
+
   position: PropertyField;
 
   points: PropertyField;

@@ -8,10 +8,11 @@ type ObjectTypeChampionship {
   goalsDifference: Float!
   goalsScored: Float!
   goalsTaken: Float!
+  id: ID!
   imageUrl: String!
   loss: Float!
   matches: String!
-  name: ID!
+  name: String!
   points: Float!
   position: Float!
   winners: Float!
