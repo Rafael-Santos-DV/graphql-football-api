@@ -102,13 +102,13 @@ query {
 
 ## Queries
 
-- **todayMatches**
+- **todayMatches** \
   Essa consulta procura os jogos de hoje de determinado campeonato
 
   Parâmetros aceitos:
 
-  **championship: String**; -> required
-  **country: String**; -> required
+  **championship: String**; -> required \
+  **country: String**; -> required \
   **limit: Number**; -> optional
 
 Exemplo:
@@ -147,11 +147,59 @@ Possível retorno:
 
 ```
 
-- **championshipTable**
-  Essa consulta procura pela tabela de um determinado campeonato
+- **lastMatches** \
+   Essa consulta procura pelos últimos jogos de determinado time
 
-- **lastMatches**
-  Essa consulta procura pelos últimos jogos de determinado time
+  Parâmetros aceitos: \
+
+  **id: String**; -> required \
+   **limit: Number**; -> optional
+
+  Exemplo:
+
+  ```gql
+  query {
+    lastMatches(id: "<id da equipe>", limit: 1) {
+      championship
+      eventTime
+      homeTeam {
+        goals
+        imageUrl
+        name
+      }
+      visitantTeam {
+        goals
+        imageUrl
+        name
+      }
+    }
+  }
+  ```
+
+  Retorno:
+
+  ```json
+  {
+    "data": {
+      "lastMatches": [
+        {
+          "championship": "<campeonato>",
+          "eventTime": "data e horário",
+          "homeTeam": {
+            "goals": "<number>",
+            "imageUrl": "<logo url>",
+            "name": "<nome da equipe da casa>"
+          },
+          "visitantTeam": {
+            "goals": "<number>",
+            "imageUrl": "<logo url>",
+            "name": "<nome da equipe visitante>"
+          }
+        }
+      ]
+    }
+  }
+  ```
 
 ## Exemplo com React
 
