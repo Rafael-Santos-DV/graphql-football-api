@@ -3,6 +3,12 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type InfoTeam {
+  goals: String!
+  imageUrl: String!
+  name: String!
+}
+
 type ObjectTypeChampionship {
   draws: Float!
   goalsDifference: Float!
@@ -18,6 +24,13 @@ type ObjectTypeChampionship {
   winners: Float!
 }
 
+type ObjectTypeLastMatches {
+  championship: ID!
+  eventTime: String!
+  homeTeam: InfoTeam!
+  visitantTeam: InfoTeam!
+}
+
 type ObjectTypeTodayGames {
   championship: String!
   eventTime: String!
@@ -28,6 +41,7 @@ type ObjectTypeTodayGames {
 
 type Query {
   championshipTable(championship: String!, country: String!): [ObjectTypeChampionship!]!
+  lastMatches(id: String!): [ObjectTypeLastMatches!]!
   todayMatches(championship: String!, country: String!): [ObjectTypeTodayGames!]!
 }
 

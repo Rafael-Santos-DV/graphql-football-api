@@ -2,7 +2,7 @@ import { Arg, Query, Resolver } from 'type-graphql';
 import ObjectTypeChampionship from '../ObjectTypes/ObjectTypeChampionship';
 import Providers from '../Providers/Providers';
 import { ChampionshipType } from '../Types/TypeChampionship';
-import ScrapingFlashChampionship from '../WebScraping/Scrapings/ScrapingFlashScoreChampionship';
+import ScrapingFlashScoreChampionship from '../WebScraping/Scrapings/ScrapingFlashScoreChampionship';
 import Browser from '../WebScraping/Browser';
 
 @Resolver()
@@ -16,7 +16,7 @@ class ResolverChampionship {
 
     const WINDOW_DOCUMENT = await browser.startBrowser();
 
-    const data = new ScrapingFlashChampionship(WINDOW_DOCUMENT.HTML).scrapingChampionshipTable();
+    const data = new ScrapingFlashScoreChampionship(WINDOW_DOCUMENT.HTML).scrapingChampionshipTable();
     return data;
   }
 }

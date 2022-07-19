@@ -1,8 +1,8 @@
-import { Field, InputType, ObjectType } from 'type-graphql';
+import { Field, ID, InputType, ObjectType } from 'type-graphql';
 
 @ObjectType()
-@InputType()
-class Team {
+@InputType('Team')
+class InfoTeam {
   @Field()
   name: string;
 
@@ -15,20 +15,17 @@ class Team {
 
 @ObjectType()
 class ObjectTypeLastMatches {
-  @Field()
+  @Field(() => ID)
   championship: string;
 
   @Field()
   eventTime: string;
 
   @Field()
-  teamOne: Team;
+  homeTeam: InfoTeam;
 
   @Field()
-  teamTwo: Team;
-
-  @Field()
-  information?: string;
+  visitantTeam: InfoTeam;
 }
 
 export default ObjectTypeLastMatches;
