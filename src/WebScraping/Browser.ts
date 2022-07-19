@@ -17,7 +17,9 @@ class Browser {
         return cacheBrowser.get(this.providerOfData.name) as { title: string; HTML: string };
       }
 
-      const browser = await pupperter.launch();
+      const browser = await pupperter.launch({
+        args: ['--proxy-server=https://api-graphql.onrender.com:10000'],
+      });
 
       const page = await browser.newPage();
 
