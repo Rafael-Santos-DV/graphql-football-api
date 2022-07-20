@@ -35,12 +35,12 @@ class ScrapingFlashScoreMatches implements ContractLastMatches {
         eventTime: element.find('.event__time').text(),
         homeTeam: {
           goals: element.find('.event__score--home').text(),
-          imageUrl: `https://www.flashscore.com.br${element.find('.event__logo--home').attr('src')}` ?? '',
+          imageUrl: `https://www.flashscore.com.br${element.find('.event__logo--home').attr('src')}`,
           name: element.find('.event__participant--home').text(),
         },
         visitantTeam: {
           goals: element.find('.event__score--away').text(),
-          imageUrl: `https://www.flashscore.com.br${element.find('.event__logo--away').attr('src')}` ?? '',
+          imageUrl: `https://www.flashscore.com.br${element.find('.event__logo--away').attr('src')}`,
           name: element.find('.event__participant--away').text(),
         },
       });

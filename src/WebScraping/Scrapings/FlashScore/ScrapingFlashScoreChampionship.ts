@@ -15,7 +15,7 @@ class ScrapingFlashChampionship implements ContractChampionship {
       const golsScoredAndTaken = query.find('.table__cell--value').eq(4).text().split(':');
 
       const team = {
-        id: query.find('.tableCellParticipant__image').attr('href') ?? '',
+        id: String(query.find('.tableCellParticipant__image').attr('href')),
         name: query.find('.tableCellParticipant__name').text(),
         position: query.find('.tableCellRank').text(),
         points: query.find('.table__cell--points').text(),

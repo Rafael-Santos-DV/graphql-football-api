@@ -56,3 +56,29 @@ export const mockFlashScoreMatches = `
   </div>
 </div>
 `;
+
+export const mockFlashScoreTodayMatchesNotInit = `
+<div class="leagues--live">
+
+  <span class="event__title--type">Brasil</span>
+  <span class="event__title--name">Serie A</span>
+
+  <div title='Clique para detalhes do jogo!'>
+
+    <span class="event__stage--block"></span>
+    <span class="event__time">20:30</span>
+
+    <div>
+      <strong class="event__participant--home">Sul Brasil</strong>
+      <img src="/src/png.png" class="event__logo--home" />
+      <span class="event__score--home"></span>
+    </div>
+
+    <div>
+      <strong class="event__participant--away">Norte Brasil</strong>
+      <img src="/src/png.png" class="event__logo--away" />
+      <span class="event__score--away"></span>
+    </div>
+  </div>
+</div>
+`;
