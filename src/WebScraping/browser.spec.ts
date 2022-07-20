@@ -1,4 +1,4 @@
-import Browser from './Browser';
+import Browser, { cacheBrowser } from './Browser';
 import { resolve } from 'path';
 import { readFileSync } from 'fs';
 import { load } from 'cheerio';
@@ -14,6 +14,10 @@ describe('Browser -> DocumentHTML', () => {
     path = resolve(__dirname, '..', 'Mocks', 'FlashScoreMocks', 'flashScore.html');
     HTML = await readFileSync(path, 'utf-8');
     documentHTML = await new Browser({ name: 'browser-testing', provider: path }).startBrowser();
+  });
+
+  it('should return a object cache', () => {
+    expect(documentHTML).toEqual(cacheBrowser.get('browser-testing'));
   });
 
   it('should return a HTML and Title equal to expected', async () => {
