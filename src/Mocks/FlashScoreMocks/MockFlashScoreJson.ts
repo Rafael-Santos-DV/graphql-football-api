@@ -1,6 +1,6 @@
 export const mockFlashScoreChampionshipTableJson = {
   id: '/info/test/test',
-  name: 'Lião',
+  name: 'Sul Brasil',
   position: '1',
   points: '15',
   imageUrl: 'https://www.flashscore.com.br/src/images/team.png',

@@ -1,23 +1,57 @@
-import { mockFlashScoreHTML, mockFlashScoreHTMLerror } from '../../../Mocks/MockFlashScoreHtml';
-import { mockFlashScoreChampionshipTableJson } from '../../../Mocks/MockFlashScoreJson';
+import {
+  mockFlashScoreChampionshipTableHTML,
+  mockFlashScoreHTMLerror,
+  mockFlashScoreMatches,
+} from '../../../Mocks/FlashScoreMocks/MockFlashScoreHtml';
+import { mockFlashScoreChampionshipTableJson } from '../../../Mocks/FlashScoreMocks/MockFlashScoreJson';
 import ScrapingFlashChampionship from './ScrapingFlashScoreChampionship';
+import ScrapingFlashScoreMatches from './ScrapingFlashScoreLastMatches';
 
-describe('Scraping FlashScore', () => {
-  it('should return an array with the amount', () => {
-    expect(new ScrapingFlashChampionship(mockFlashScoreHTML).scrapingChampionshipTable().length).toBe(1);
+describe('Scraping FlashScore -> ChampionshipTable', () => {
+  it('should return an array with the specified amount', () => {
+    expect(new ScrapingFlashChampionship(mockFlashScoreChampionshipTableHTML).scrapingChampionshipTable().length).toBe(1);
     expect(
-      new ScrapingFlashChampionship(mockFlashScoreHTML + mockFlashScoreHTML + mockFlashScoreHTML).scrapingChampionshipTable().length
+      new ScrapingFlashChampionship(
+        mockFlashScoreChampionshipTableHTML + mockFlashScoreChampionshipTableHTML + mockFlashScoreChampionshipTableHTML
+      ).scrapingChampionshipTable().length
     ).toBe(3);
 
     expect(new ScrapingFlashChampionship(mockFlashScoreHTMLerror).scrapingChampionshipTable().length).toBe(0);
   });
 
-  it('should return an array equal to expected', () => {
-    expect(new ScrapingFlashChampionship(mockFlashScoreHTML + mockFlashScoreHTML).scrapingChampionshipTable()).toEqual([
-      mockFlashScoreChampionshipTableJson,
-      mockFlashScoreChampionshipTableJson,
-    ]);
+  it('should return an array of objects equal to expected', () => {
+    expect(
+      new ScrapingFlashChampionship(mockFlashScoreChampionshipTableHTML + mockFlashScoreChampionshipTableHTML).scrapingChampionshipTable()
+    ).toEqual([mockFlashScoreChampionshipTableJson, mockFlashScoreChampionshipTableJson]);
 
     expect(new ScrapingFlashChampionship(mockFlashScoreHTMLerror).scrapingChampionshipTable()).toEqual([]);
+  });
+});
+
+describe('Scraping FlashScore -> ScoreMatches', () => {
+  it('should return an array of empty', () => {
+    expect(new ScrapingFlashChampionship(mockFlashScoreHTMLerror).scrapingChampionshipTable()).toEqual([]);
+  });
+
+  it('should return an array of objects equal to expected', () => {
+    expect(new ScrapingFlashScoreMatches(mockFlashScoreMatches).scrapingLastMatches()).toEqual([
+      {
+        championship: 'Espanha La Liga',
+
+        eventTime: '19:00 22/07',
+
+        homeTeam: {
+          name: 'Sul Brasil',
+          imageUrl: 'https://www.flashscore.com.br/src/image.png',
+          goals: '2',
+        },
+
+        visitantTeam: {
+          name: 'Norte Brasil',
+          imageUrl: 'https://www.flashscore.com.br/src/image.png',
+          goals: '0',
+        },
+      },
+    ]);
   });
 });
