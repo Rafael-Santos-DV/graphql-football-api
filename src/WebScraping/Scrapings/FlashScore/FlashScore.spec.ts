@@ -14,14 +14,14 @@ import path from 'path';
 
 describe('Scraping FlashScore -> ChampionshipTable', () => {
   it('should return an array with the specified amount', () => {
-    expect(new ScrapingFlashChampionship(mockFlashScoreChampionshipTableHTML).scrapingChampionshipTable().length).toBe(1);
+    expect(new ScrapingFlashChampionship(mockFlashScoreChampionshipTableHTML).scrapingChampionshipTable()).toHaveLength(1);
     expect(
       new ScrapingFlashChampionship(
         mockFlashScoreChampionshipTableHTML + mockFlashScoreChampionshipTableHTML + mockFlashScoreChampionshipTableHTML
-      ).scrapingChampionshipTable().length
-    ).toBe(3);
+      ).scrapingChampionshipTable()
+    ).toHaveLength(3);
 
-    expect(new ScrapingFlashChampionship(mockFlashScoreHTMLerror).scrapingChampionshipTable().length).toBe(0);
+    expect(new ScrapingFlashChampionship(mockFlashScoreHTMLerror).scrapingChampionshipTable()).toHaveLength(0);
   });
 
   it('should return an array of objects equal to expected', () => {
@@ -66,7 +66,7 @@ describe('Scraping FlashScore -> TodayGames', () => {
     const pathHTML = path.resolve(__dirname, '..', '..', '..', 'mocks', 'FlashScoreMocks', 'flashScore.html');
     const HTML = await fs.readFileSync(pathHTML, 'utf-8');
 
-    expect(new ScrapingFlashScoreTodayGames(HTML).scrapingTodayGames().length).toBe(4);
+    expect(new ScrapingFlashScoreTodayGames(HTML).scrapingTodayGames()).toHaveLength(4);
   });
 
   it('should return an array of objects equal to expected', async () => {

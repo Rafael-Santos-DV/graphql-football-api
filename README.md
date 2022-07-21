@@ -106,10 +106,11 @@ query {
    Essa consulta procura os jogos de hoje de determinado campeonato
 
   Parâmetros aceitos:
-
-  **championship: String**; -> required :exclamation: \
-  **country: String**; -> required :exclamation: \
-  **limit: Number**; -> optional :question:
+  | **params** | **IsRequired** | **Type** |
+  | ---------- | ----------- | ---- |
+  | championship | required :exclamation: | String |
+  | country | required :exclamation: | String |
+  | limit | opcional :question: | Number |
 
 Exemplo:
 
@@ -151,9 +152,10 @@ Possível retorno:
    Essa consulta procura pelos últimos jogos de determinado time
 
   Parâmetros aceitos:
-
-  **id: String**; -> required :exclamation: \
-   **limit: Number**; -> optional :question:
+  | **Params** | **IsRequired**| **Type** |
+  |--------|-----------|--------|
+  | id | required :exclamation: | String |
+  | limit | opcional :question: | Number |
 
   Exemplo:
 
@@ -206,3 +208,5 @@ Possível retorno:
 //
 
 ### OBS: em desenvolvimento
+
+Em desenvolvimento, mas você pode abrir um PR a qualquer momento.
