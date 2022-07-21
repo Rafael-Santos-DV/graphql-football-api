@@ -13,7 +13,11 @@ class ResolverChampionship {
     @Arg('championship', () => String) championship: string,
     @Arg('limit', { nullable: true }) limit?: number
   ): Promise<ChampionshipType[]> {
-    const browser = new Browser(Providers.flashScoreChampionship(country, championship));
+    const object = process.env.DEV_FLASHSCORE_TEST
+      ? Providers.flashScoreProviderTest(country, championship)
+      : Providers.flashScoreChampionship(country, championship);
+
+    const browser = new Browser(object);
 
     const WINDOW_DOCUMENT = await browser.startBrowser();
 

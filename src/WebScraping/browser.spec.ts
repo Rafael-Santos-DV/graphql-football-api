@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import { readFileSync } from 'fs';
 import { load } from 'cheerio';
 
-jest.setTimeout(30000);
+jest.setTimeout(60000);
 
 describe('Browser -> DocumentHTML', () => {
   let documentHTML: { title: string; HTML: string };

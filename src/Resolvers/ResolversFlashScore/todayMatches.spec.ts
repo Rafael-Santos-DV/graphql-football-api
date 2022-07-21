@@ -1,9 +1,7 @@
 import Request from 'supertest';
 import { TypeTodayGame } from '../../Types/TypeTodayGames';
 
-jest.setTimeout(60000);
-
-const mockQuery = (limit?: number) => `{
+const mockQueryTodayMatches = (limit?: number) => `{
   todayMatches(championship: "serie-a", country: "brasil"${limit ? `,limit: ${limit}` : ''}) {
     championship
     eventTime
@@ -27,7 +25,7 @@ describe('Query TodayMatches', () => {
     Request('http://localhost:4000')
       .post('/')
       .send({
-        query: mockQuery(),
+        query: mockQueryTodayMatches(),
       })
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -61,7 +59,7 @@ describe('Query TodayMatches', () => {
     Request('http://localhost:4000')
       .post('/')
       .send({
-        query: mockQuery(1),
+        query: mockQueryTodayMatches(1),
       })
       .set('Accept', 'application/json')
       .end((err, res) => {

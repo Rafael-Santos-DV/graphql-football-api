@@ -9,7 +9,11 @@ import ScrapingFlashScoreMatches from '../../WebScraping/Scrapings/FlashScore/Sc
 class ResolverLastMatches {
   @Query(() => [ObjectTypeLastMatches])
   async lastMatches(@Arg('id') id: string, @Arg('limit', { nullable: true }) limit?: number): Promise<LastMatchesType[]> {
-    const browser = new Browser(Providers.flashScoreLastMatches(id));
+    const object = process.env.DEV_FLASHSCORE_TEST
+      ? Providers.flashScoreProviderTest('test', 'testing')
+      : Providers.flashScoreLastMatches(id);
+
+    const browser = new Browser(object);
 
     const WINDOW_DOCUMENT = await browser.startBrowser();
 
