@@ -1,9 +1,9 @@
 import { Arg, Query, Resolver } from 'type-graphql';
-import ObjectTypeLastMatches from '../ObjectTypes/ObjectTypeLastMatches';
-import Providers from '../Providers/Providers';
-import { LastMatchesType } from '../Types/TypeLastMatches';
-import Browser from '../WebScraping/Browser';
-import ScrapingFlashScoreMatches from '../WebScraping/Scrapings/FlashScore/ScrapingFlashScoreLastMatches';
+import ObjectTypeLastMatches from '../../ObjectTypes/ObjectTypeLastMatches';
+import Providers from '../../Providers/Providers';
+import { LastMatchesType } from '../../Types/TypeLastMatches';
+import Browser from '../../WebScraping/Browser';
+import ScrapingFlashScoreMatches from '../../WebScraping/Scrapings/FlashScore/ScrapingFlashScoreLastMatches';
 
 @Resolver()
 class ResolverLastMatches {
