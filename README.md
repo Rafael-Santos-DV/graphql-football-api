@@ -203,6 +203,16 @@ Possível retorno:
   }
   ```
 
+## Queries
+
+- :white_check_mark: championshipTable
+- :white_check_mark: lastMatches
+- :white_check_mark: todayMatches
+
+:fire: Next features :fire:
+
+- :white_large_square: allTeams
+
 ## Exemplo com React
 
 //
