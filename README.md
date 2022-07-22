@@ -240,7 +240,7 @@ Render: [https://api-graphql.onrender.com/](https://api-graphql.onrender.com/)
 2. Crie uma conta no heroku [aqui](https://signup.heroku.com/) ou clique [aqui](https://id.heroku.com/login) caso já tenha uma conta criada.
    Com sua conta criada, siga para o próximo passo:
 
-3. Crie seu app
+3. Crie seu app. <br>
    Em seu dashboard do heroku, procute por _create new app_ e crie seu app.
 
 4. Fazer login no CLI do HEROKU.
@@ -265,7 +265,7 @@ git commit -m "seu commit"
 ```
 
 7. Procute em seu DASHBOARD do heroku por **ADD buildpack** e adione o seguinte pacote
-   <img src="/.github/assets/heroku-buildpack.png" alt="heroku" >
+   <img width="300px" src="/.github/assets/heroku-buildpack.png" alt="heroku" >
 
    `https://github.com/jontewks/puppeteer-heroku-buildpack`
 
