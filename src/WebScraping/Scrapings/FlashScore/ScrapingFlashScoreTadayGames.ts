@@ -11,10 +11,11 @@ class ScrapingFlashScoreTodayGames implements ContractTodayGames {
     const $ = load(this.documentHTML);
     console.log($('title').html());
     $(".leagues--live [title='Clique para detalhes do jogo!']").each(function (i) {
-      console.log($('title').text());
+      console.log($(".leagues--live [title='Clique para detalhes do jogo!']").html());
       const query = $(this);
 
       const status = query.find('.event__stage--block').text();
+      console.log(status);
 
       const match = {
         championship: `${$('.leagues--live .event__title--type').text()} ${$('.leagues--live .event__title--name').text()}`,
