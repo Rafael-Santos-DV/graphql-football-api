@@ -18,12 +18,12 @@ class ResolverTodayGames {
       : Providers.flashScoreTodayMatches(country, championship);
 
     const browser = new Browser(object);
-
-    console.log(process.env.DEV_FLASHSCORE_TEST);
+    console.log(browser);
 
     const WINDOW_DOCUMENT = await browser.startBrowser();
 
     const data = new ScrapingFlashScoreTodayGames(WINDOW_DOCUMENT.HTML).scrapingTodayGames();
+    console.log(data);
 
     return data.slice(0, limit);
   }
