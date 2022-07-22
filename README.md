@@ -254,7 +254,7 @@ Caso não tenha o CLI do Heroku instalado, acesse [aqui](https://devcenter.herok
 5. Adicionar seu repositório remoto
 
 ```bash
-heroku git:remote -a football-api-graphql
+heroku git:remote -a <nome do seu app do heroku>
 ```
 
 6. Adicionar suas mudanças
