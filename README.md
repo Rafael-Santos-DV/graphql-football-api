@@ -222,15 +222,22 @@ Cache
 ## API
 
 Lembrando que são serviços **gratuitos**, pode haver lentidão
-[Heroku](https://football-api-graphql.herokuapp.com/)
-[Render](https://api-graphql.onrender.com/)
+Heroku: [https://football-api-graphql.herokuapp.com/](https://football-api-graphql.herokuapp.com/) /
+Render: [https://api-graphql.onrender.com/](https://api-graphql.onrender.com/)
 
 ## Como subir sua aplição no heroku?
 
-1. Crie uma conta no heroku [aqui](https://signup.heroku.com/) ou clique [aqui](https://id.heroku.com/login) caso já tenha uma conta criada.
+1. Faça o clone do repositório.
+   `bash git clone https://github.com/Rafael-Santos-DV/graphql-football-api.git`
+   `cd graphql-football-api`
+
+2. Crie uma conta no heroku [aqui](https://signup.heroku.com/) ou clique [aqui](https://id.heroku.com/login) caso já tenha uma conta criada.
    Com sua conta criada, siga para o próximo passo:
 
-2. Fazer login no CLI do HEROKU.
+3. Crie seu app
+   Em seu dashboard do heroku, procute por _create new app_ e crie seu app.
+
+4. Fazer login no CLI do HEROKU.
 
 ```bash
 heroku login
@@ -238,25 +245,25 @@ heroku login
 
 Caso não tenha o CLI do Heroku instalado, acesse [aqui](https://devcenter.heroku.com/articles/heroku-cli) para instalar.
 
-3. Adicionar seu repositório remoto
+5. Adicionar seu repositório remoto
 
 ```bash
 heroku git:remote -a football-api-graphql
 ```
 
-4. Adicionar suas mudanças
+6. Adicionar suas mudanças
 
 ```bash
 git add .
 git commit -m "seu commit"
 ```
 
-6. Procute em seu DASHBOARD do heroku por **ADD buildpack** e adione o seguinte pacote
-   <img src=".github/assets/heroku-build.png" alt="heroku" >
+7. Procute em seu DASHBOARD do heroku por **ADD buildpack** e adione o seguinte pacote
+   <img src="/.github/assets/heroku-build.png" alt="heroku" >
 
    `https://github.com/jontewks/puppeteer-heroku-buildpack`
 
-7. Por fim, subir sua API
+8. Por fim, subir sua API
 
 ```bash
 git push heroku master
