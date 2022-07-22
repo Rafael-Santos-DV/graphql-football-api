@@ -277,9 +277,150 @@ git commit -m "seu commit"
 git push heroku master
 ```
 
-## Cosumindo a API com React
+## Cosumindo a API com React/Ts e Apollo Client.
+Vamos criar uma tabela básica do campeonato brasileiro;
 
-//
+1. ### Crie sua aplicação em React com sua ferramenta de construção favorita, nesse tutorial vamos utilizar o **vitejs**.
+```
+yarn create vite championship-table --template react-ts
+```
+
+2. ### Instale o Apollo Client
+```bash
+npm install @apollo/client graphql
+// or
+yarn add @apollo/client graphql
+```
+
+3. ### inicializar ApolloClient e Configurar
+
+Em seu arquivo principal, vamos importar os símbolos que precisamos de @apollo/client
+
+```typescript
+import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+```
+Em seguida, inicializaremos ApolloClient, passando para seu construtor um objeto de configuração com os campos uriand :cache
+
+```typescript
+
+const client = new ApolloClient({
+  uri: 'https://flyby-gateway.herokuapp.com/',
+  cache: new InMemoryCache(),
+});
+
+```
+
+**uri**: Especifica a URL do nosso servidor GraphQL.
+**cache**: É uma instância de InMemoryCache, que o Apollo Client usa para armazenar em cache os resultados da consulta após buscá-los.
+
+É isso! Nosso client está pronto para começar a buscar dados.
+
+4. ### Conecte seu cliente ao React
+Você conecta o Apollo Client ao React com o ApolloProvidercomponente. Semelhante ao React Context.Provider, ApolloProviderenvolve seu aplicativo React e coloca o Apollo Client no contexto, permitindo que você o acesse de qualquer lugar em sua árvore de componentes.
+
+Vamos envolver nosso aplicativo React com um arquivo ApolloProvider. Sugerimos colocar ApolloProvider em algum lugar alto em seu aplicativo, acima de qualquer componente que possa precisar acessar dados do GraphQL.
+
+```tsx
+import React from "react";
+import * as ReactDOM from "react-dom/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import App from "./App";
+
+const client = new ApolloClient({
+  uri: "https://football-api-graphql.herokuapp.com/",
+  cache: new InMemoryCache(),
+});
+
+// Supported in React 18+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </React.StrictMode>
+);
+
+```
+
+5. ### Buscar dados com **useQuery**
+Depois que o seu ApolloProvider estiver conectado, você poderá começar a solicitar dados com useQuery. O useQuerygancho é um gancho do React que compartilha dados do GraphQL com sua interface do usuário.
+
+Mudando para o nosso App.tsx arquivo, começaremos substituindo o conteúdo do arquivo para o código abaixo.
+
+```typescript
+import "./App.css";
+import { gql, useQuery } from "@apollo/client";
+
+const GET_CHAMPIONSHIP_TABLE = gql`
+  query {
+    championshipTable(championship: "serie-a", country: "brasil") {
+      name
+      draws
+      position
+      goalsDifference
+      goalsScored
+      goalsTaken
+      imageUrl
+      loss
+      matches
+      points
+      winners
+    }
+  }
+`;
+```
+
+- Podemos definir a consulta que queremos executar envolvendo-a no **gql** literal do modelo:
+
+Em seguida, vamos definir um componente chamado ShowChampionshipTable que executa nossa GET_CHAMPIONSHIP_TABLE consulta com o useQuery hook.
+
+```typescript
+function ShowChampionshipTable() {
+  const { loading, error, data } = useQuery<ChampionshipTable>(
+    GET_CHAMPIONSHIP_TABLE
+  );
+
+  if (loading) return <p>Loading...</p>;
+
+  if (error) return <p>Error :(</p>;
+
+  return (
+    <div className="App">
+      <table>
+        <tr>
+          <th>Posição</th>
+          <th>Equipe</th>
+          <th>Pontos</th>
+          <th>Vitórias</th>
+          <th>Partidas</th>
+        </tr>
+
+        {data?.championshipTable.map((team) => (
+          <tr>
+            <td>
+              <strong>{team.position}</strong>
+            </td>
+            <td className="td-image">
+              <img src={team.imageUrl} alt={team.name} />
+              <strong>{team.name}</strong>
+            </td>
+            <td>
+              <span>{team.points}</span>
+            </td>
+            <td>
+              <span>{team.winners}</span>
+            </td>
+            <td>
+              <span>{team.matches}</span>
+            </td>
+          </tr>
+        ))}
+      </table>
+    </div>
+  );
+}
+
+```
 
 ### OBS: em desenvolvimento
 
