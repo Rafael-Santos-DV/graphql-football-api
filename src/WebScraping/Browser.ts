@@ -18,7 +18,8 @@ class Browser {
       }
 
       const browser = await pupperter.launch({
-        // args: ['--proxy-server=https://api-graphql.onrender.com:10000'],
+        headless: true,
+        args: ['--no-sandbox'],
       });
 
       const page = await browser.newPage();
