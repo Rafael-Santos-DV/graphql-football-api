@@ -264,10 +264,12 @@ git add .
 git commit -m "seu commit"
 ```
 
-7. Procute em seu DASHBOARD do heroku por **ADD buildpack** e adione o seguinte pacote
-   <img width="300px" src="/.github/assets/heroku-buildpack.png" alt="heroku" >
+7. Procute em seu DASHBOARD do heroku por **ADD buildpack** e adione o seguinte pacote. <br>
+   <img width="300px" src="/.github/assets/heroku-buildpack.png" alt="heroku" > <br>
 
-   `https://github.com/jontewks/puppeteer-heroku-buildpack`
+   ```
+   https://github.com/jontewks/puppeteer-heroku-buildpack
+   ```
 
 8. Por fim, subir sua API
 
