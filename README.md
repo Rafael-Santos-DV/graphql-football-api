@@ -221,15 +221,19 @@ Cache
 
 ## API
 
-Lembrando que são serviços **gratuitos**, pode haver lentidão /
-Heroku: [https://football-api-graphql.herokuapp.com/](https://football-api-graphql.herokuapp.com/) /
+Lembrando que são serviços **gratuitos**, pode haver lentidão. //
+Heroku: [https://football-api-graphql.herokuapp.com/](https://football-api-graphql.herokuapp.com/) //
 Render: [https://api-graphql.onrender.com/](https://api-graphql.onrender.com/)
 
 ## Como subir sua aplição no heroku?
 
-1. Faça o clone do repositório.
-   ```bash git clone https://github.com/Rafael-Santos-DV/graphql-football-api.git```
-   ```cd graphql-football-api```
+1. Faça o clone do repositório. //
+   ```bash 
+   git clone https://github.com/Rafael-Santos-DV/graphql-football-api.git
+   ```
+   ```bash
+   cd graphql-football-api
+   ```
 
 2. Crie uma conta no heroku [aqui](https://signup.heroku.com/) ou clique [aqui](https://id.heroku.com/login) caso já tenha uma conta criada.
    Com sua conta criada, siga para o próximo passo:
