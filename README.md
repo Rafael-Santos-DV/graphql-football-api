@@ -221,16 +221,18 @@ Cache
 
 ## API
 
-Lembrando que são serviços **gratuitos**, pode haver lentidão. //
-Heroku: [https://football-api-graphql.herokuapp.com/](https://football-api-graphql.herokuapp.com/) //
+Lembrando que são serviços **gratuitos**, pode haver lentidão. <br>
+Heroku: [https://football-api-graphql.herokuapp.com/](https://football-api-graphql.herokuapp.com/) <br>
 Render: [https://api-graphql.onrender.com/](https://api-graphql.onrender.com/)
 
 ## Como subir sua aplição no heroku?
 
-1. Faça o clone do repositório. //
-   ```bash 
+1. Faça o clone do repositório. <br>
+
+   ```bash
    git clone https://github.com/Rafael-Santos-DV/graphql-football-api.git
    ```
+
    ```bash
    cd graphql-football-api
    ```
@@ -263,7 +265,7 @@ git commit -m "seu commit"
 ```
 
 7. Procute em seu DASHBOARD do heroku por **ADD buildpack** e adione o seguinte pacote
-   <img src="/.github/assets/heroku-build.png" alt="heroku" >
+   <img src="/.github/assets/heroku-buildpack.png" alt="heroku" >
 
    `https://github.com/jontewks/puppeteer-heroku-buildpack`
 
