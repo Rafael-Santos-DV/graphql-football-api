@@ -211,7 +211,23 @@ Possível retorno:
 
 :fire: Next features :fire:
 
+Queries
+
 - :white_large_square: allTeams
+
+Cache
+
+- Redis
+
+## API
+
+Lembrando que são serviços **gratuitos**, pode haver lentidão
+[Heroku](https://football-api-graphql.herokuapp.com/)
+[Render](https://api-graphql.onrender.com/)
+
+## Como subir sua aplição no heroku?
+
+//
 
 ## Exemplo com React
 
