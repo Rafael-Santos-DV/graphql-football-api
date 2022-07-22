@@ -13,9 +13,9 @@ class Browser {
 
   public async startBrowser() {
     try {
-      if (cacheBrowser.has(this.providerOfData.name)) {
-        return cacheBrowser.get(this.providerOfData.name) as { title: string; HTML: string };
-      }
+      // if (cacheBrowser.has(this.providerOfData.name)) {
+      //   return cacheBrowser.get(this.providerOfData.name) as { title: string; HTML: string };
+      // }
 
       const browser = await pupperter.launch({
         headless: true,
