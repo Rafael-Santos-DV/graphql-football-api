@@ -213,7 +213,7 @@ Possível retorno:
 
 Queries
 
-    - :white_large_square: allTeams
+- :white_large_square: allTeams
 
 Cache
 
@@ -227,9 +227,42 @@ Lembrando que são serviços **gratuitos**, pode haver lentidão
 
 ## Como subir sua aplição no heroku?
 
-//
+1. Crie uma conta no heroku [aqui](https://signup.heroku.com/) ou clique [aqui](https://id.heroku.com/login) caso já tenha uma conta criada.
+   Com sua conta criada, siga para o próximo passo:
 
-## Exemplo com React
+2. Fazer login no CLI do HEROKU.
+
+```bash
+heroku login
+```
+
+Caso não tenha o CLI do Heroku instalado, acesse [aqui](https://devcenter.heroku.com/articles/heroku-cli) para instalar.
+
+3. Adicionar seu repositório remoto
+
+```bash
+heroku git:remote -a football-api-graphql
+```
+
+4. Adicionar suas mudanças
+
+```bash
+git add .
+git commit -m "seu commit"
+```
+
+6. Procute em seu DASHBOARD do heroku por **ADD buildpack** e adione o seguinte pacote
+   <img src=".github/assets/heroku-build.png" alt="heroku" >
+
+   `https://github.com/jontewks/puppeteer-heroku-buildpack`
+
+7. Por fim, subir sua API
+
+```bash
+git push heroku master
+```
+
+## Cosumindo a API com React
 
 //
 
