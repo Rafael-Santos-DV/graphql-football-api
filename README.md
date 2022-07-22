@@ -209,15 +209,15 @@ Possível retorno:
 - :white_check_mark: lastMatches
 - :white_check_mark: todayMatches
 
-:fire: Next features :fire:
+### :fire: **Next features** :fire:
 
 Queries
 
-- :white_large_square: allTeams
+    - :white_large_square: allTeams
 
 Cache
 
-- Redis
+- <img width="60px" src="https://redis.com/wp-content/themes/wpx/assets/images/logo-redis-white.svg?auto=webp&quality=85,75&width=100">
 
 ## API
 
