@@ -423,7 +423,7 @@ function ShowChampionshipTable() {
         </tr>
 
         {data?.championshipTable.map((team) => (
-          <tr>
+          <tr key={team.id}>
             <td>
               <strong>{team.position}</strong>
             </td>

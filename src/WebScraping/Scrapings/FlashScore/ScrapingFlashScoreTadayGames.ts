@@ -1,24 +1,14 @@
 import { load } from 'cheerio';
 import ContractTodayGames from '../../../Contracts/ContractTodayGames';
 import { TypeTodayGame } from '../../../Types/TypeTodayGames';
-import Browser from '../../Browser';
-
-let teste: string;
-
-(async () => {
-  const { HTML } = await new Browser({ name: 'testing', provider: 'https://www.flashscore.com.br/futebol/brasil/serie-b/' }).startBrowser();
-  teste = HTML;
-})();
 
 class ScrapingFlashScoreTodayGames implements ContractTodayGames {
   constructor(readonly documentHTML: string) {}
 
   scrapingTodayGames(): TypeTodayGame[] {
     const data = [] as TypeTodayGame[];
-    console.log(teste);
-    const $ = load(teste);
 
-    console.log($('.leagues--live').html());
+    const $ = load(this.documentHTML);
 
     $(".leagues--live [title='Clique para detalhes do jogo!']").each(function (i) {
       const query = $(this);
