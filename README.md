@@ -277,79 +277,84 @@ git commit -m "seu commit"
 git push heroku master
 ```
 
+<br>
+<br>
+
 ## Cosumindo a API com React/Ts e Apollo Client.
+
 Vamos criar uma tabela básica do campeonato brasileiro;
 
-1. ### Crie sua aplicação em React com sua ferramenta de construção favorita, nesse tutorial vamos utilizar o **vitejs**.
+### 1. Crie sua aplicação em React com sua ferramenta de construção favorita, nesse tutorial vamos utilizar o **vite.js**.
+
 ```
 yarn create vite championship-table --template react-ts
 ```
 
-2. ### Instale o Apollo Client
+### 2. Instale o Apollo Client
+
 ```bash
 npm install @apollo/client graphql
-// or
+# or
 yarn add @apollo/client graphql
 ```
 
-3. ### inicializar ApolloClient e Configurar
+### 3. inicializar ApolloClient e Configurar
 
 Em seu arquivo principal, vamos importar os símbolos que precisamos de @apollo/client
 
 ```typescript
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 ```
-Em seguida, inicializaremos ApolloClient, passando para seu construtor um objeto de configuração com os campos uriand :cache
+
+Em seguida, inicializaremos ApolloClient, passando para seu construtor um objeto de configuração com os campos uri e cache
 
 ```typescript
-
 const client = new ApolloClient({
-  uri: 'https://flyby-gateway.herokuapp.com/',
+  uri: 'https://football-api-graphql.herokuapp.com/',
   cache: new InMemoryCache(),
 });
-
 ```
 
-**uri**: Especifica a URL do nosso servidor GraphQL.
-**cache**: É uma instância de InMemoryCache, que o Apollo Client usa para armazenar em cache os resultados da consulta após buscá-los.
+**uri**: Especifica a URL do nosso servidor GraphQL. <br>
+**cache**: É uma instância de InMemoryCache, que o Apollo Client usa para armazenar em cache os resultados da consulta após buscá-los. <br>
 
 É isso! Nosso client está pronto para começar a buscar dados.
 
-4. ### Conecte seu cliente ao React
-Você conecta o Apollo Client ao React com o ApolloProvidercomponente. Semelhante ao React Context.Provider, ApolloProviderenvolve seu aplicativo React e coloca o Apollo Client no contexto, permitindo que você o acesse de qualquer lugar em sua árvore de componentes.
+### 4. Conecte seu cliente ao React
+
+Você conecta o Apollo Client ao React com o ApolloProvider componente. Semelhante ao React Context.Provider, ApolloProvider envolve seu aplicativo React e coloca o Apollo Client no contexto, permitindo que você o acesse de qualquer lugar em sua árvore de componentes. <br>
 
 Vamos envolver nosso aplicativo React com um arquivo ApolloProvider. Sugerimos colocar ApolloProvider em algum lugar alto em seu aplicativo, acima de qualquer componente que possa precisar acessar dados do GraphQL.
 
 ```tsx
-import React from "react";
-import * as ReactDOM from "react-dom/client";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import App from "./App";
+import React from 'react';
+import * as ReactDOM from 'react-dom/client';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import App from './App';
 
 const client = new ApolloClient({
-  uri: "https://football-api-graphql.herokuapp.com/",
+  uri: 'https://football-api-graphql.herokuapp.com/',
   cache: new InMemoryCache(),
 });
 
 // Supported in React 18+
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <App />
     </ApolloProvider>
   </React.StrictMode>
 );
-
 ```
 
-5. ### Buscar dados com **useQuery**
-Depois que o seu ApolloProvider estiver conectado, você poderá começar a solicitar dados com useQuery. O useQuerygancho é um gancho do React que compartilha dados do GraphQL com sua interface do usuário.
+### 5. Buscar dados com **useQuery**
+
+Depois que o seu ApolloProvider estiver conectado, você poderá começar a solicitar dados com useQuery. O useQuery hook é um hook do React que compartilha dados do GraphQL com sua interface do usuário. <br>
 
 Mudando para o nosso App.tsx arquivo, começaremos substituindo o conteúdo do arquivo para o código abaixo.
 
 ```typescript
-import "./App.css";
-import { gql, useQuery } from "@apollo/client";
+import { gql, useQuery } from '@apollo/client';
 
 const GET_CHAMPIONSHIP_TABLE = gql`
   query {
@@ -372,13 +377,35 @@ const GET_CHAMPIONSHIP_TABLE = gql`
 
 - Podemos definir a consulta que queremos executar envolvendo-a no **gql** literal do modelo:
 
-Em seguida, vamos definir um componente chamado ShowChampionshipTable que executa nossa GET_CHAMPIONSHIP_TABLE consulta com o useQuery hook.
+Em seguida, vamos definir um componente chamado ShowChampionshipTable que executa nossa GET_CHAMPIONSHIP_TABLE consulta com o useQuery hook. <br>
+
+Antes de criarmos o componente, vamos criar uma tipagem para o response da API
 
 ```typescript
+type Team = {
+  name: string;
+  draws: number;
+  position: number;
+  goalsDifference: number;
+  goalsScored: number;
+  goalsTaken: number;
+  imageUrl: string;
+  loss: number;
+  matches: number;
+  points: number;
+  winners: number;
+};
+
+type ChampionshipTable = {
+  championshipTable: Team[];
+};
+```
+
+Agora vamos criar o componente :)<br>
+
+```tsx
 function ShowChampionshipTable() {
-  const { loading, error, data } = useQuery<ChampionshipTable>(
-    GET_CHAMPIONSHIP_TABLE
-  );
+  const { loading, error, data } = useQuery<ChampionshipTable>(GET_CHAMPIONSHIP_TABLE);
 
   if (loading) return <p>Loading...</p>;
 
@@ -419,9 +446,15 @@ function ShowChampionshipTable() {
     </div>
   );
 }
-
 ```
 
-### OBS: em desenvolvimento
+:fire: Muito Bom, acabamos de criar um componente que lista a tabela do campeonato brasileira Serie - A <br>
 
-Em desenvolvimento, mas você pode abrir um PR a qualquer momento.
+Agora você pode utilizar as outras queries com o React e Apollo Client
+
+## Material
+
+:star: [Apollo Client](https://www.apollographql.com/docs/react/get-started)<br>
+:star: [React](https://pt-br.reactjs.org/)<br>
+:star: [Graphql](https://graphql.org/)<br>
+:star: [TypeScript](https://www.typescriptlang.org/)
