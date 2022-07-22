@@ -225,7 +225,7 @@ Lembrando que são serviços **gratuitos**, pode haver lentidão. <br>
 Heroku: [https://football-api-graphql.herokuapp.com/](https://football-api-graphql.herokuapp.com/) <br>
 Render: [https://api-graphql.onrender.com/](https://api-graphql.onrender.com/)
 
-## Como subir sua aplição no heroku?
+## Como subir sua aplicação no heroku?
 
 1. Faça o clone do repositório. <br>
 
