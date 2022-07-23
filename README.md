@@ -83,6 +83,7 @@ query {
 ```gql
 query {
   championshipTable(championship: "serie-a", country: "brasil") {
+    id
     name
     draws
     position
