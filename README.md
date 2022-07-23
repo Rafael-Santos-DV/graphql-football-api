@@ -277,6 +277,11 @@ git commit -m "seu commit"
 ```bash
 git push heroku master
 ```
+#### **OBS: lembre-se de alterar o fuso horário do seu servidor heroku para sua região**
+Exemplo: 
+```bash
+heroku config:add TZ=America/Sao_Paulo 
+```
 
 <br>
 <br>
