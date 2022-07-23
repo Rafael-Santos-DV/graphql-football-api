@@ -222,7 +222,8 @@ Cache
 ## API
 
 Lembrando que são serviços **gratuitos**, pode haver lentidão. <br>
-Heroku: [https://football-api-graphql.herokuapp.com/](https://football-api-graphql.herokuapp.com/) <br>
+Heroku - 1: [https://football-api-graphql.herokuapp.com/](https://football-api-graphql.herokuapp.com/) <br>
+Heroku - 2: [https://api-graphql-2.herokuapp.com/](https://api-graphql-2.herokuapp.com/) <br>
 Render: [https://api-graphql.onrender.com/](https://api-graphql.onrender.com/)
 
 ## Como subir sua aplicação no heroku?
