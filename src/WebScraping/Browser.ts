@@ -6,7 +6,7 @@ type ProviderType = {
   provider: string;
 };
 
-export const cacheBrowser = new NodeCache({ stdTTL: 280, checkperiod: 320, deleteOnExpire: true });
+export const cacheBrowser = new NodeCache({ stdTTL: 300, checkperiod: 320, deleteOnExpire: true });
 
 class Browser {
   constructor(private providerOfData: ProviderType) {}
@@ -45,8 +45,7 @@ class Browser {
 }
 
 cacheBrowser.on('expired', function (key, value) {
-  console.log('expirou', key);
-  console.log('value: ', value);
+  console.log('expired: ', key);
 });
 
 export default Browser;
