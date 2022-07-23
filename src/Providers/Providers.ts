@@ -15,7 +15,7 @@ export default {
   },
   flashScoreTodayMatches: (country: string, championship: string) => {
     return {
-      name: `today-Matches: ${country} - ${championship}`,
+      name: `today-matches: ${country} - ${championship}`,
       provider: `https://www.flashscore.com.br/futebol/${country}/${championship}/`,
     };
   },

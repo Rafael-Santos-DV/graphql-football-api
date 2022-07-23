@@ -21,8 +21,6 @@ class ResolverTodayGames {
 
     const WINDOW_DOCUMENT = await browser.startBrowser();
 
-    console.log(WINDOW_DOCUMENT.HTML);
-
     const data = new ScrapingFlashScoreTodayGames(WINDOW_DOCUMENT.HTML).scrapingTodayGames();
 
     return data.slice(0, limit);
