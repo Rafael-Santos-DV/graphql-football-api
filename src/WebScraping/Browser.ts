@@ -6,7 +6,7 @@ type ProviderType = {
   provider: string;
 };
 
-export const cacheBrowser = new NodeCache({ stdTTL: 300 });
+export const cacheBrowser = new NodeCache({ stdTTL: 300, checkperiod: 300 });
 
 class Browser {
   constructor(private providerOfData: ProviderType) {}
@@ -14,7 +14,7 @@ class Browser {
   public async startBrowser() {
     try {
       if (cacheBrowser.has(this.providerOfData.name)) {
-        return cacheBrowser.get(this.providerOfData.name) as { title: string; HTML: string };
+        return JSON.parse(String(cacheBrowser.get(this.providerOfData.name))) as { title: string; HTML: string };
       }
 
       const browser = await pupperter.launch({
@@ -35,7 +35,7 @@ class Browser {
 
       await browser.close();
 
-      cacheBrowser.set(this.providerOfData.name, documentHTML);
+      cacheBrowser.set(this.providerOfData.name, JSON.stringify(documentHTML));
 
       return documentHTML;
     } catch (err) {
