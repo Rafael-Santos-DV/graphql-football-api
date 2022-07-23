@@ -6,7 +6,7 @@ type ProviderType = {
   provider: string;
 };
 
-export const cacheBrowser = new NodeCache({ stdTTL: 1 * 60 * 60 });
+export const cacheBrowser = new NodeCache({ stdTTL: 300 });
 
 class Browser {
   constructor(private providerOfData: ProviderType) {}
