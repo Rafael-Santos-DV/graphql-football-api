@@ -465,3 +465,6 @@ Agora você pode utilizar as outras queries com o React e Apollo Client
 :star: [React](https://pt-br.reactjs.org/)<br>
 :star: [Graphql](https://graphql.org/)<br>
 :star: [TypeScript](https://www.typescriptlang.org/)
+
+#### Fontes
+FlashScore: https://www.flashscore.com.br/
