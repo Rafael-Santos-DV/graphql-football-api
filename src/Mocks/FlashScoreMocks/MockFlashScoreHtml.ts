@@ -58,12 +58,12 @@ export const mockFlashScoreMatches = `
 `;
 
 export const mockFlashScoreTodayMatchesNotInit = `
-<div class="leagues--live">
+<div class="leagues--live contest--leagues">
 
   <span class="event__title--type">Brasil</span>
   <span class="event__title--name">Serie A</span>
 
-  <div title='Clique para detalhes do jogo!'>
+  <div title='Clique para detalhes do jogo!' class="event__match">
 
     <span class="event__stage--block"></span>
     <span class="event__time">20:30</span>

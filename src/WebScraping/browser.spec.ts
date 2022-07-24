@@ -17,7 +17,7 @@ describe('Browser -> DocumentHTML', () => {
   });
 
   it('should return a object cache', () => {
-    expect(documentHTML).toEqual(cacheBrowser.get('browser-testing'));
+    expect(documentHTML).toEqual(JSON.parse(cacheBrowser.get('browser-testing') ?? '{}'));
   });
 
   it('should return a HTML and Title equal to expected', async () => {
