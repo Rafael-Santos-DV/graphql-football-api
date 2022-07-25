@@ -58,6 +58,8 @@ Acessar: [localhost:4000](http://locahost:4000)
 
 ## Listar os jogos de hoje do campeonato **Brasileiro Série A**
 
+_Consulta estática básica_
+
 ```gql
 query {
   todayMatches(championship: "serie-a", country: "brasil") {
@@ -79,6 +81,8 @@ query {
 ```
 
 ## Listar tabela do campeonato **Brasileiro Série A**
+
+_Consulta estática básica_
 
 ```gql
 query {
@@ -109,9 +113,9 @@ query {
   Parâmetros aceitos:
   | **params** | **IsRequired** | **Type** |
   | ---------- | ----------- | ---- |
-  | championship | required :exclamation: | String |
-  | country | required :exclamation: | String |
-  | limit | opcional :question: | Number |
+  | championship | required :exclamation: | String! |
+  | country | required :exclamation: | String! |
+  | limit | opcional :question: | Int |
 
 Exemplo:
 
@@ -155,8 +159,8 @@ Possível retorno:
   Parâmetros aceitos:
   | **Params** | **IsRequired**| **Type** |
   |--------|-----------|--------|
-  | id | required :exclamation: | String |
-  | limit | opcional :question: | Number |
+  | id | required :exclamation: | String! |
+  | limit | opcional :question: | Int |
 
   Exemplo:
 
@@ -278,10 +282,13 @@ git commit -m "seu commit"
 ```bash
 git push heroku master
 ```
+
 #### **OBS: lembre-se de alterar o fuso horário do seu servidor heroku para sua região**
-Exemplo: 
+
+Exemplo:
+
 ```bash
-heroku config:add TZ=America/Sao_Paulo 
+heroku config:add TZ=America/Sao_Paulo
 ```
 
 <br>
@@ -467,4 +474,5 @@ Agora você pode utilizar as outras queries com o React e Apollo Client
 :star: [TypeScript](https://www.typescriptlang.org/)
 
 #### Fontes
+
 FlashScore: https://www.flashscore.com.br/

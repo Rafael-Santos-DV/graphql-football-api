@@ -10,18 +10,18 @@ type InfoTeam {
 }
 
 type ObjectTypeChampionship {
-  draws: Float!
-  goalsDifference: Float!
-  goalsScored: Float!
-  goalsTaken: Float!
+  draws: Int!
+  goalsDifference: Int!
+  goalsScored: Int!
+  goalsTaken: Int!
   id: ID!
   imageUrl: String!
-  loss: Float!
+  loss: Int!
   matches: String!
   name: String!
-  points: Float!
-  position: Float!
-  winners: Float!
+  points: Int!
+  position: Int!
+  winners: Int!
 }
 
 type ObjectTypeLastMatches {
@@ -40,9 +40,9 @@ type ObjectTypeTodayGames {
 }
 
 type Query {
-  championshipTable(championship: String!, country: String!, limit: Float): [ObjectTypeChampionship!]!
-  lastMatches(id: String!, limit: Float): [ObjectTypeLastMatches!]!
-  todayMatches(championship: String!, country: String!, limit: Float): [ObjectTypeTodayGames!]!
+  championshipTable(championship: String!, country: String!, limit: Int): [ObjectTypeChampionship!]!
+  lastMatches(id: String!, limit: Int): [ObjectTypeLastMatches!]!
+  todayMatches(championship: String!, country: String!, limit: Int): [ObjectTypeTodayGames!]!
 }
 
 type Team {

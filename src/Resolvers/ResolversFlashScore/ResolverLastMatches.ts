@@ -1,4 +1,4 @@
-import { Arg, Query, Resolver } from 'type-graphql';
+import { Arg, Int, Query, Resolver } from 'type-graphql';
 import ObjectTypeLastMatches from '../../ObjectTypes/ObjectTypeLastMatches';
 import Providers from '../../Providers/Providers';
 import { LastMatchesType } from '../../Types/TypeLastMatches';
@@ -8,7 +8,7 @@ import ScrapingFlashScoreMatches from '../../WebScraping/Scrapings/FlashScore/Sc
 @Resolver()
 class ResolverLastMatches {
   @Query(() => [ObjectTypeLastMatches])
-  async lastMatches(@Arg('id') id: string, @Arg('limit', { nullable: true }) limit?: number): Promise<LastMatchesType[]> {
+  async lastMatches(@Arg('id') id: string, @Arg('limit', (type) => Int, { nullable: true }) limit?: number): Promise<LastMatchesType[]> {
     const object = process.env.DEV_FLASHSCORE_TEST
       ? Providers.flashScoreProviderTest('test', 'testing')
       : Providers.flashScoreLastMatches(id);

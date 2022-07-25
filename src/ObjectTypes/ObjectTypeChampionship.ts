@@ -1,4 +1,4 @@
-import { Field, ID, ObjectType } from 'type-graphql';
+import { Field, ID, Int, ObjectType } from 'type-graphql';
 
 type PropertyField = number | string;
 
@@ -10,10 +10,10 @@ class ObjectTypeChampionship {
   @Field()
   name: string;
 
-  @Field(() => Number)
+  @Field(() => Int)
   position: PropertyField;
 
-  @Field(() => Number)
+  @Field(() => Int)
   points: PropertyField;
 
   @Field()
@@ -22,22 +22,22 @@ class ObjectTypeChampionship {
   @Field(() => String)
   matches: PropertyField;
 
-  @Field(() => Number)
+  @Field(() => Int)
   winners: PropertyField;
 
-  @Field(() => Number)
+  @Field(() => Int)
   draws: PropertyField;
 
-  @Field(() => Number)
+  @Field(() => Int)
   loss: PropertyField;
 
-  @Field(() => Number)
+  @Field(() => Int)
   goalsScored: PropertyField;
 
-  @Field(() => Number)
+  @Field(() => Int)
   goalsTaken: PropertyField;
 
-  @Field(() => Number)
+  @Field(() => Int)
   goalsDifference: PropertyField;
 }
 

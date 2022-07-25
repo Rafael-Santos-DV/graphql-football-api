@@ -1,4 +1,4 @@
-import { Arg, Query, Resolver } from 'type-graphql';
+import { Arg, Int, Query, Resolver } from 'type-graphql';
 import ObjectTypeTodayGames from '../../ObjectTypes/ObjectTypeTodayGames';
 import Providers from '../../Providers/Providers';
 import { TypeTodayGame } from '../../Types/TypeTodayGames';
@@ -11,7 +11,7 @@ class ResolverTodayGames {
   async todayMatches(
     @Arg('country') country: string,
     @Arg('championship', () => String) championship: string,
-    @Arg('limit', { nullable: true }) limit?: number
+    @Arg('limit', (type) => Int, { nullable: true }) limit?: number
   ): Promise<TypeTodayGame[]> {
     const object = process.env.DEV_FLASHSCORE_TEST
       ? Providers.flashScoreProviderTest(country, championship)
